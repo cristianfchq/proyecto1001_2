@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(10.0),
             child: Text(
               //document['votes'].toString(),
-              'Bs ' + document['cantidad'].toString(),
+              'Bs ' + document['precio'].toString(),
               style: Theme.of(context).textTheme.body2,
             ),
           ),
@@ -94,7 +94,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: StreamBuilder(
         stream: Firestore.instance.collection('items').snapshots(),
         builder: (context, snapshot){
-          if (!snapshot.hasData) return const Text('Loading... ');
+          if (!snapshot.hasData) return Center(
+                child: Text("Cargando... "),
+              );
 
           return ListView.builder(
             itemExtent: 60.0,

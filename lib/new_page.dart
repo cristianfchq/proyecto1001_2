@@ -193,7 +193,7 @@ String goatUrl = 'https://i.stack.imgur.com/Qt4JP.png';
         ),
         ListTile(
           title: Text(
-            'Bs ' + widget.items['cantidad'].toString(),
+            'Bs ' + widget.items['precio'].toString(),
             textAlign: TextAlign.justify,
           ),
           //subtitle: Text('Some have horns'),
