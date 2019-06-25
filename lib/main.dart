@@ -15,10 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Band Name Survey',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
+        //brightness: Brightness.dark,
+        //primaryColor: Colors.lightBlue[800],
+        accentColor: Colors.yellow[600]
       ),
       home: const MyHomePage(
-        title: 'Posible Band Names',
+        title: 'Farmacia',
       ),
     );
   }
@@ -40,36 +43,58 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
     return ListTile(
       title: Row(
+        
         children: <Widget>[
           Expanded(
-            child: Text(
-              //bandInfo.name,
-              document['name'],
-              style: Theme.of(context).textTheme.body2,
+            flex: 1,
+            child: Container(
+              color: Colors.red[50],
+              width: 50,
+              height: 55,
+              child: Center(
+                child: Text(
+                document['name'],
+                //style: Theme.of(context).textTheme.body2,
+                style: TextStyle(fontWeight: FontWeight.bold,),
+              ),
+              ), 
             ),
+//            child: Text(
+              //bandInfo.name,
+//              document['name'],
+//              style: Theme.of(context).textTheme.body2,
+//            ),
           ),
           Container(
+            //color: Colors.blue[100],
+            width: 80,
+            height: 55,
             decoration: const BoxDecoration(
-              color: Color(0xffddddff),
+              color: Color.fromARGB(0xFF,0xF4,0xD1,0x80),
             ),
             padding: const EdgeInsets.all(10.0),
             child: Text(
               //document['votes'].toString(),
               'Bs ' + document['precio'].toString(),
               style: Theme.of(context).textTheme.body2,
+              //style: TextStyle(fontWeight: FontWeight.bold,),
             ),
           ),
           Container(
+            width: 80,
+            height: 55,
             decoration: const BoxDecoration(
-              color: Color(0xffdddd00),
+              color: Color.fromARGB(0xFF,0xFF,0xFF,0x8D),
             ),
             padding: const EdgeInsets.all(10.0),
             child: Text(
               //document['votes'].toString(),
-              document['cantidad'].toString(),
+              document['cantidad'].toString() + ' uni',
               style: Theme.of(context).textTheme.body1,
+              //style: TextStyle(fontWeight: FontWeight.bold,),
             ),
           ),
+          Divider(),
         ],
       ),
       onTap: (){
